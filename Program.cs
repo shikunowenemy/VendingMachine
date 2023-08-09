@@ -93,14 +93,13 @@ void GetChange()
         Console.WriteLine("Невозможно выдать сдачу.");
         return;
     }
-    List<int> reversedCointTypes = coinTypes;
-    reversedCointTypes.Reverse();
-    Console.WriteLine($"К сдаче: ");
-    foreach (int coinType in reversedCointTypes)
+
+    Console.WriteLine($"Монеты к сдаче: ");
+    for (int i = coinTypes.Count - 1; i >= 0; i--)
     {
-        int changeCoins = balance / coinType;
-        balance -= changeCoins * coinType;
-        if (changeCoins != 0) Console.WriteLine($"{changeCoins} номиналом {coinType}");
+        int changeCoins = balance / coinTypes[i];
+        balance -= changeCoins * coinTypes[i];
+        if (changeCoins != 0) Console.WriteLine($"  * {changeCoins} номиналом {coinTypes[i]}");
     }
 }
 
@@ -147,7 +146,7 @@ void BuyGood(int id, int count)
 
     if (cost > balance)
     {
-        Console.WriteLine($"На балансе не хватает {cost-balance} руб. для покупки");
+        Console.WriteLine($"На балансе не хватает {cost - balance} руб. для покупки");
         return;
     }
 
