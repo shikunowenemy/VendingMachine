@@ -1,4 +1,4 @@
-﻿#region Initialization of base variables
+﻿#region Base variables
 
 int balance = 0;
 List<int> coinTypes = new List<int>() { 1, 2, 5, 10 };
@@ -18,6 +18,7 @@ List<Good> goods = new List<Good>()
 };
 
 #endregion
+
 void PrintError()
 {
     Console.WriteLine("Некорректные параметры, попробуйте еще раз");
@@ -29,6 +30,7 @@ void ShowBalance()
 }
 
 #region AddMoney Methods
+
 int InputMoney(string inputMessage)
 {
     Console.Write(inputMessage);
@@ -63,6 +65,7 @@ void PayCoins()
 }
 
 #endregion
+
 void AddMoney()
 {
     Console.WriteLine("Тип оплаты: монеты или карта?");
@@ -168,7 +171,7 @@ while (true)
     ShowBalance();
     Console.WriteLine();
 
-    string userInput = Console.ReadLine();
+    string userInput = Console.ReadLine().Trim();
     string[] userCommands = userInput.Split();
     switch (userCommands[0].ToLower())
     {
